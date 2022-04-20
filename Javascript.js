@@ -1640,7 +1640,6 @@ function breakPalindrome(palindromeStr) {
 
 let string = '{{{[{}][()]([])({}){()}{[]}{}}}}}}}}}}}}}}}}}}}}}';
 
-
 const matching = (s) => {
     let stack = [];
     let counter = 0;
@@ -1676,3 +1675,8 @@ const matching = (s) => {
 // console.time('matching');
 // console.log(matching(string));
 // console.timeEnd('matching');
+
+function validEmail(e) {
+  var filter = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
+  return String(e).search (filter) != -1;
+}
