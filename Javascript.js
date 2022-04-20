@@ -1607,5 +1607,34 @@ const maxMean = (word,numbers) =>{
     
 }
 
-console.log(maxMean(wordArr,numberArr));
+//console.log(maxMean(wordArr,numberArr));
+
+function breakPalindrome(palindromeStr) {
+  // Write your code here
+  let lowest = 'z';
+  
+  let pLength = palindromeStr.length;
+  for(let i= 0,j = pLength;i<pLength;i++,j--){
+      if(palindromeStr[i] < lowest){
+          lowest = palindromeStr[i]
+      }
+      if(palindromeStr[j] < lowest){
+          lowest = palindromeStr[j];
+      }
+      if(pLength%2 == 0){
+          if(i+1 == j-1){
+              break;
+          }
+      }
+      else{
+          if(i == j){
+              if(palindromeStr[i] < lowest){
+                  lowest = palindromeStr[i]
+              }
+          }
+      }
+  }
+  return lowest + palindromeStr.slice(1);
+
+}
 
