@@ -1638,3 +1638,41 @@ function breakPalindrome(palindromeStr) {
 
 }
 
+let string = '{{{[{}][()]([])({}){()}{[]}{}}}}}}}}}}}}}}}}}}}}}';
+
+
+const matching = (s) => {
+    let stack = [];
+    let counter = 0;
+    let obj = {
+        '[': ']',
+        '{': '}',
+        '(': ')'
+    }
+
+    stack.push(s[0]); let index = 0;
+    let len = s.length;
+    for (let x = 1; x < len; x++){ 
+        if (index + 1 > (len-x)) {
+            return false;
+        }
+        if (obj[stack[index]] == s[x]) {
+            stack.pop();
+            index--;
+        }
+        else {
+            stack.push(s[x]);
+            index++;
+        }
+        counter++;
+    }
+    console.log(counter, s.length);
+    if (stack.length == 0) {
+        return true;
+    }    
+    return false;
+};
+
+// console.time('matching');
+// console.log(matching(string));
+// console.timeEnd('matching');
