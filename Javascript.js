@@ -1680,3 +1680,60 @@ function validEmail(e) {
   var filter = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
   return String(e).search(filter) != -1;
 }
+
+//Find First and Last Position of Element in Sorted Array
+const newArr = [1,1,2,3,4,4,4,6,7,7];
+var searchRange = function(nums, target) {
+  let startPos = 0;
+  
+  const helperFunction = (nums)=>{
+      
+      if(nums.length <= 0){
+          return [-1,-1];
+      }
+      if(nums.length === 1 && target !== nums[0]){
+          return [-1,-1];
+      }
+      if(nums.length === 1 && target === nums[0]){
+          return [startPos,startPos];
+      }
+      let mid = Math.ceil(nums.length/2);
+      if(target === nums[mid]){
+          if(nums[mid+1] !== target && nums[mid-1] !== target ){
+              return [startPos+mid,startPos+mid];
+          }
+          else{
+              let min = mid;
+              while(nums[min-1] === target){
+                  min--;
+                  if(nums[min] !== target){
+                      break;
+                  } 
+              } 
+              let max = mid;
+              while(nums[max+1] === target){
+                  max++;
+                  if(nums[max] !== target){
+                      break;
+                  }
+              }
+              return[startPos+min,startPos+max];
+          }            
+      }
+      else if(target > nums[mid]){
+          startPos+= mid+1
+          const newArr = nums.slice(mid+1,nums.length)
+          return helperFunction(newArr);
+      }
+      else{
+          const newArr = nums.slice(0,mid);
+          return helperFunction(newArr);
+      }
+  }
+  
+  return helperFunction(nums);
+  
+};
+
+console.log(searchRange(newArr,9));
+
