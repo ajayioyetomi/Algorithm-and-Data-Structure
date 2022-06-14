@@ -1,6 +1,10 @@
+//This file contains solutions to different questions from Hackerrank, LeetCode, Codelity etc.
+
+
 let arr = [1, 2, 3, 4, 5];
 let obj = { x: 10, y: 20, z: 30 };
 
+//findArrSum is a method that the two element that sum up to a given target.
 const findArrSum = (arr, sum) => {
   let hastable = {};
   for (let i = 0; i < arr.length; i++) {
@@ -15,6 +19,7 @@ const findArrSum = (arr, sum) => {
   return -1;
 };
 
+//commonElements return of element that occurs multiple time in a given array
 function commonElements(kArray) {
   var hashmap = {},
     last,
@@ -58,6 +63,7 @@ const pascalTriangle = (row, col) => {
   }
 };
 
+//decToBin converters Decimal numbers to Binary
 const decToBin = (arg) => {
   var str = "";
   const helper = (arg) => {
@@ -73,6 +79,7 @@ const decToBin = (arg) => {
   return str;
 };
 
+//checkWork helps to chech if a given word is a palindrum
 const checkWord = (word) => {
   if (typeof word == "undefined" || word == "") return false;
 
@@ -91,6 +98,7 @@ const checkWord = (word) => {
   return checkHelper(word, 0, word.length - 1);
 };
 
+//addUp returns the sum all the numbers between 1 and a given number.
 const addUp = (n) => {
   if (n == 1) {
     return 1;
@@ -98,6 +106,7 @@ const addUp = (n) => {
   return n + addUp(n - 1);
 };
 
+//sumUpArray returns the addition of all the elements in a given array.
 const sumUpArray = (arg) => {
   let add = 0;
   const helper = (n) => {
@@ -110,6 +119,7 @@ const sumUpArray = (arg) => {
   return add + helper(0);
 };
 
+//aVeryBigSum returns the sum a of the element in a given large array.
 function aVeryBigSum(ar) {
   // Write your code here
   let sum = 0;
@@ -125,11 +135,11 @@ function aVeryBigSum(ar) {
   return (sum += aVeryBigSumHelper(0, ar.length - 1));
 }
 
-const findLongString = (str) => {};
 
 let nums = [2, 7, 11, 15];
 let target = 17;
 
+//twoSum returns the array of indices of elements that sum up to a given target
 var twoSum = function (nums, target) {
   let newSet = {};
   let output = [];
@@ -159,8 +169,7 @@ var twoSum = function (nums, target) {
   return output;
 };
 
-//console.log(twoSum(nums,target));
-
+//merge_sort is used to sort array using the merge sort algorithm
 function merge_sort(values) {
   if (values.length <= 1) {
     return values;
@@ -194,9 +203,9 @@ function merge_sort(values) {
 }
 test_value1 = [0, 1, 2];
 test_value2 = [3, 4, 5];
-//let arra = merge_sort(test_value1.concat(test_value2));
-//console.log(arra[Math.floor((arra.length-1)/2)])
 
+
+//reverse return the reverse of a given string
 var reverse = function (x) {
   let str = String(x).split("");
   let len = str.length;
@@ -232,6 +241,7 @@ var reverse = function (x) {
   }
   return result;
 };
+
 
 const solution2 = (arr1, arr2) => {
   console.time()
@@ -314,6 +324,7 @@ const solution3 = (A) => {
  * @param {ListNode} l2
  * @return {ListNode}
  */
+
 var addTwoNumbers = function (l1, l2) {
   let carry = 0;
   let curVal = l1.val + l2.val;
