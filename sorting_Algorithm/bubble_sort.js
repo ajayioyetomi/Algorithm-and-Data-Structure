@@ -16,9 +16,6 @@ const bubble_sort = (arr) =>{
         let len2 = len-i;
         for(j =0;j<len2;j++){
             if(array[j] > array[j+1]){
-                // let temp = array[j];
-                // array[j] = array[j+1];
-                // array[j+1] = temp;
                 [array[j],array[j+1]] = [array[j+1],array[j]];
 
             }

@@ -1,5 +1,14 @@
 //This file contains solutions to different questions from Hackerrank, LeetCode, Codelity etc.
 
+//genArray is for generating random arrays.
+let genArray = (length,min,max) =>{
+  let arr = [];
+  let i = 0;
+  for(i = 0;i<length;i++){
+      arr.push(Math.floor(Math.random() * max-min+1)+min)
+  }
+  return arr;
+}
 
 let arr = [1, 2, 3, 4, 5];
 let obj = { x: 10, y: 20, z: 30 };
@@ -1746,5 +1755,33 @@ var searchRange = function(nums, target) {
   
 };
 
-console.log(searchRange(newArr,9));
+//console.log(searchRange(newArr,9));
+
+
+function sockMerchant(n, ar) {
+  // Write your code here
+  let obj = {};
+  let i;
+  let len = ar.length;
+  for(i = 0;i<len;i++){
+      if(obj[ar[i]]){
+          obj[ar[i]]++;
+      }
+      else{
+          obj[ar[i]] = 1;
+      }
+  }
+  let result = 0;
+  console.log(ar);
+  for(const key in obj){
+      if(obj[key]%2 === 0){
+          result = result+(obj[key]/2);
+      }
+  }
+  
+  return result;
+}
+
+let result = sockMerchant(20,genArray(200,0,50))
+console.log(result);
 
