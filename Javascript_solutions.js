@@ -1782,6 +1782,60 @@ function sockMerchant(n, ar) {
   return result;
 }
 
-let result = sockMerchant(20,genArray(200,0,50))
-console.log(result);
+//let result = sockMerchant(20,genArray(200,0,50))
+
+
+let testArr=[
+  {
+    id:3,
+    fName:'fatai',
+    lName:'james'
+  },
+  {
+    id:2,
+    fName:'bola',
+    lName:'adeola'
+  },
+  {
+    id:5,
+    fName:'sola',
+    lName:'adebakin'
+  },
+  {
+    id:1,
+    fName:'ajewole',
+    lName:'bukola'
+  },
+  {
+    id:4,
+    fName:'olawole',
+    lName:'yusuf'
+  }]
+
+  const reSortArr = (arr,key) =>{
+     let newArr = [];
+     let i;let len=arr.length;
+     for(i = 0;i<len ;i++){
+       newArr[i] = arr[i][key];
+     }
+     newArr.sort();
+     if(!isNaN(Number(newArr[0]))){
+      newArr.sort((a,b) => a-b);
+     }
+     let finalArr = [];
+     for(i = 0;i<len;i++){
+        let ind = 0;
+        finalArr[i] = arr.filter((element,num) => {
+            if(element[key] === newArr[i] ){
+              ind = num;
+            }
+            return element[key] === newArr[i]
+        })[0];
+        arr[ind] = {fName : -1}
+     }
+     return finalArr
+  }
+
+  console.log(reSortArr(testArr,'id'))
+ 
 
