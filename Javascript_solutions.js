@@ -1685,7 +1685,7 @@ const matching = (s) => {
         }
         counter++;
     }
-    console.log(counter, s.length);
+    //console.log(counter, s.length);
     if (stack.length == 0) {
         return true;
     }    
