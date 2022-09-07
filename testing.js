@@ -52,7 +52,15 @@ const colorizeWordle = (guessedWord, hiddenWord) => {
     return result;
 };
 
-let result = colorizeWordle('apipe','egipe');
+//let result = colorizeWordle('apipe','egipe');
 
 // console.log(result);
+function test (){
+    console.log(this);
+}
+
+const test2 = ()=>{
+    console.log(this);
+}
+
 
