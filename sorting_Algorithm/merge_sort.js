@@ -50,3 +50,17 @@ const merge_sort = (arr) =>{
 //let result = merge_sort(genArray(20,1,300))
 //console.log(result);
 
+const solution = (s)=>{
+    
+    let len = s.length;
+    let obj = {};
+    s = s.sort((a,b)=>a-b);
+    console.log(s,'new s')
+    for(let i = 0;i<len-1;i++){
+       obj[s[i]-s[i+1]] = (obj[s[i]-s[i+1]] ||0)+1;
+    }
+    let result = Object.values(obj).sort((a,b)=>a-b).at(-1);
+    console.log(result+1);
+}
+
+solution([50, 3, 10, 7, 40, 80]);
